@@ -21,9 +21,21 @@ public class Main {
 
         List<Object> result = mergeAlternately(list1, list2);
         System.out.println(result);
+        System.out.println("===========================================================");
 
 
+        System.out.println("================= Problem 3 ================================");
 
+        List<Long> fibonacciNumbers = generateFibonacci(100);
+        System.out.println(fibonacciNumbers);
+
+        System.out.println("===========================================================");
+
+
+        System.out.println("================= Problem 4 ================================");
+
+        int[] nums = {50, 2, 1, 9};
+        System.out.println(largestNumber(nums)); // Output: "95021"
 
 
     }
@@ -74,6 +86,46 @@ public class Main {
 
 
     //====================================== Problem 3 =======================================
+
+
+    public static List<Long> generateFibonacci(int n) {
+        List<Long> fibonacci = new ArrayList<>();
+        if (n <= 0) return fibonacci;
+
+        fibonacci.add(0L);
+        if (n == 1) return fibonacci;
+
+        fibonacci.add(1L);
+        for (int i = 2; i < n; i++) {
+            fibonacci.add(fibonacci.get(i - 1) + fibonacci.get(i - 2));
+        }
+
+        return fibonacci;
+    }
+
+
+
+    //====================================== Problem 4 =======================================
+
+
+    public static String largestNumber(int[] nums) {
+        List<String> numStrings = new ArrayList<>();
+        for (int num : nums) {
+            numStrings.add(String.valueOf(num));
+        }
+
+        numStrings.sort((a, b) -> (b + a).compareTo(a + b));
+
+        StringBuilder result = new StringBuilder();
+        for (String num : numStrings) {
+            result.append(num);
+        }
+
+        return result.toString();
+    }
+
+    //====================================== Problem 5 =======================================
+
 
 
 }
